@@ -24,8 +24,14 @@ public class task {
     }
 
     public void setDeadLine(int year, int month, int day) {
+        if (month < 10 && day < 10) {
+            this.deadLine = String.format("%d.0%d.0%d", day, month, year);
+        }
         if (month < 10) {
             this.deadLine = String.format("%d.0%d.%d", day, month, year);
+        }
+        if (day < 10) {
+            this.deadLine = String.format("%d.%d.0%d", day, month, year);
         } else {
             this.deadLine = String.format("%d.%d.%d", day, month, year);
         }
