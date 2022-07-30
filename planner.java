@@ -11,6 +11,7 @@ import planner.task.Priority;
 public class planner {
 
     List<task> tasks = new ArrayList<>();
+    PrintWriter pw = null;
 
     public void addTask(task task) {
         tasks.add(task);
@@ -43,7 +44,6 @@ public class planner {
     }
 
     public void printPlanner() {
-        PrintWriter pw = null;
         try {
             pw = new PrintWriter(new File("planner/Planner.csv"));
         } catch (IOException e) {
@@ -59,5 +59,7 @@ public class planner {
 
         pw.close();
     }
+
+
 
 }
