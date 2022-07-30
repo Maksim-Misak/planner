@@ -33,6 +33,15 @@ public class planner {
         }
     }
 
+    public void deleteTask(int id) {
+
+        for (int i = 0; i < tasks.size(); i++) {
+            if (tasks.get(i).getID() == id) {
+                tasks.remove(i);
+            }
+        }
+    }
+
     public void printPlanner() {
         PrintWriter pw = null;
         try {
