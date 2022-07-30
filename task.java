@@ -4,24 +4,21 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
- * this is abstract class task
- */
 public class task {
     private int id;
     private String authorsName;
     private String taskCreationDate;
     private String taskCreationTime;
-    public String priority;
+    public Priority priority;
     public String deadLine;
     private DateFormat formatDate = new SimpleDateFormat("dd.MM.yyyy");
     private DateFormat formatTime = new SimpleDateFormat("kk:mm:ss");
 
     enum Priority {
         SUPERURGENT,
-        HI,
+        HIGH,
         MEDIUM,
-        LOW
+        LOW,
     }
 
     public task(int id, String authorsName) {
@@ -30,7 +27,7 @@ public class task {
         this.taskCreationDate = formatDate.format(new Date());
         this.taskCreationTime = formatTime.format(new Date());
         this.deadLine = "not defined";
-        this.priority = "not defined";
+        this.priority = Priority.LOW;
     }
 
     public void setDeadLine(int year, int month, int day) {
@@ -49,11 +46,15 @@ public class task {
 
     @Override
     public String toString() {
-        return String.format("%d, %s, %s, %s, %s", this.id, this.authorsName, this.taskCreationDate,
-                this.taskCreationTime, this.deadLine);
+        return String.format("%d, %s, %s, %s, %s, %s", this.id, this.authorsName, this.taskCreationDate,
+                this.taskCreationTime, this.deadLine, this.priority);
     }
 
     public void setPriority(Priority pr) {
-        this.priority = pr.toString();
+        this.priority = pr;
+    }
+
+    public int getID() {
+        return this.id;
     }
 }
