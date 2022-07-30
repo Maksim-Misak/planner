@@ -6,6 +6,8 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+import planner.task.Priority;
+
 public class planner {
 
     List<task> tasks = new ArrayList<>();
@@ -14,14 +16,22 @@ public class planner {
         tasks.add(task);
     }
 
+public void setPriority(int id, Priority priority) {
+    for (task task : tasks) {
+        if (task.getID() == id) {
+            task.setPriority(priority);;
+        }
+    }
+}
+
     public void printPlanner() {
         PrintWriter pw = null;
         try {
-            pw = new PrintWriter(new File("Planner.csv"));
+            pw = new PrintWriter(new File("planner/Planner.csv"));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        String columns = "id, author's name, task creation date, task creation time, deadline";
+        String columns = "id, author's name, task creation date, task creation time, deadline, priority";
 
         pw.write(columns + "\n");
 
