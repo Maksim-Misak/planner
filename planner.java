@@ -16,13 +16,22 @@ public class planner {
         tasks.add(task);
     }
 
-public void setPriority(int id, Priority priority) {
-    for (task task : tasks) {
-        if (task.getID() == id) {
-            task.setPriority(priority);;
+    public void setPriority(int id, Priority priority) {
+        for (task task : tasks) {
+            if (task.getID() == id) {
+                task.setPriority(priority);
+                ;
+            }
         }
     }
-}
+
+    public void setDeadLine(int id, int year, int month, int day) {
+        for (task task : tasks) {
+            if (task.getID() == id) {
+                task.setDeadLine(year, month, day);
+            }
+        }
+    }
 
     public void printPlanner() {
         PrintWriter pw = null;
