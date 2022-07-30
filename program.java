@@ -1,9 +1,6 @@
 package planner;
 import planner.task.Priority;
 
-// import java.util.ArrayList;
-// import java.util.List;
-
 public class program {
     public static void main(String[] args) {
         planner dayPlanner = new planner();
