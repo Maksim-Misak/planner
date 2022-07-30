@@ -1,4 +1,5 @@
 package planner;
+import planner.task.Priority;
 
 // import java.util.ArrayList;
 // import java.util.List;
@@ -12,7 +13,10 @@ public class program {
 
         dayPlanner.printPlanner();
 
-        // dayPlanner.printPlanner(taskList);
+        dayPlanner.setPriority(1, Priority.HIGH);
+        dayPlanner.setDeadLine(2, 2022, 11, 27);
+        
+        dayPlanner.printPlanner();
 
     }
 }
