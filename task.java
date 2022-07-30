@@ -12,15 +12,25 @@ public class task {
     private String authorsName;
     private String taskCreationDate;
     private String taskCreationTime;
-    private String deadLine;
+    public String priority;
+    public String deadLine;
     private DateFormat formatDate = new SimpleDateFormat("dd.MM.yyyy");
     private DateFormat formatTime = new SimpleDateFormat("kk:mm:ss");
+
+    enum Priority {
+        SUPERURGENT,
+        HI,
+        MEDIUM,
+        LOW
+    }
 
     public task(int id, String authorsName) {
         this.id = id;
         this.authorsName = authorsName;
         this.taskCreationDate = formatDate.format(new Date());
         this.taskCreationTime = formatTime.format(new Date());
+        this.deadLine = "not defined";
+        this.priority = "not defined";
     }
 
     public void setDeadLine(int year, int month, int day) {
@@ -41,5 +51,9 @@ public class task {
     public String toString() {
         return String.format("%d, %s, %s, %s, %s", this.id, this.authorsName, this.taskCreationDate,
                 this.taskCreationTime, this.deadLine);
+    }
+
+    public void setPriority(Priority pr) {
+        this.priority = pr.toString();
     }
 }
