@@ -18,5 +18,13 @@ public class program {
         
         dayPlanner.printPlanner();
 
+        dayPlanner.deleteTask(3);
+
+        dayPlanner.printPlanner();
+
+        dayPlanner.addTask(new task(3, "Markus"));
+
+        dayPlanner.printPlanner();
+
     }
 }
